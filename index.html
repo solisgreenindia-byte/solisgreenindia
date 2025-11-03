@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solis Green India - Leading solar energy solutions provider in Kerala. Solar panel installation, maintenance across Pathanamthitta, Kottayam, Alappuzha and South Kerala.">
+    <meta name="keywords" content="solar company kerala, solar panels pathanamthitta, solar installation kottayam, solar energy alappuzha">
+    <meta name="author" content="Solis Green India">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Solis Green India",
+      "description": "Leading solar energy solutions provider in Kerala",
+      "url": "https://solisgreenindia.in",
+      "telephone": "+91-8301849474",
+      "email": "solisgreenindia@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Kerala",
+        "addressCountry": "India"
+      },
+      "areaServed": ["Pathanamthitta", "Kottayam", "Alappuzha", "Kollam", "Thiruvananthapuram", "Thiruvalla", "Changanacherry", "Chengannur", "Kozhencherry", "Ranni", "Konni", "Punalur", "Adoor", "Kottarakkara", "Mavelikkara", "Pandalam", "Kayamkulam"]
+    }
+    </script>
+    
+    <title>Solis Green India - Solar Company in Kerala | Solar Panels Installation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Expandable Floating CTA -->
+    <div class="floating-cta">
+        <div class="cta-main-btn" id="ctaMainBtn">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="cta-options">
+            <a href="tel:8301849474" class="cta-option" data-tooltip="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="#" class="cta-option" data-tooltip="Quick Quote" id="quickFormBtn">
+                <i class="fas fa-file-alt"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/C125qY2UpXTRdGay7" class="cta-option" data-tooltip="Get Directions" target="_blank">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+            <a href="https://wa.me/918301849474" class="cta-option" data-tooltip="WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Quote Modal -->
+    <div class="modal" id="quickQuoteModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Get Quick Solar Quote</h3>
+            <form class="quick-quote-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Select Service</option>
+                        <option value="residential">Residential Solar</option>
+                        <option value="commercial">Commercial Solar</option>
+                        <option value="industrial">Industrial Solar</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-bolt"></i> Get Instant Quote
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo/logo.png" alt="Solis Green India - Solar Energy Solutions" class="logo-img">
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/services.html">Services</a></li>
+                    <li><a href="pages/cities.html">Service Areas</a></li>
+                    <li><a href="pages/projects.html">Projects</a></li>
+                    <li><a href="pages/contact.html" class="cta-button">Contact</a></li>
+                    <!-- Hidden login link - only accessible via direct URL -->
+                    <li style="display: none;"><a href="login.html">Employee Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Powering Kerala's Future with Sustainable Energy</h1>
+            <p>Leading solar energy solutions provider serving Pathanamthitta, Kottayam, Alappuzha and across South Kerala.</p>
+            <div class="hero-buttons">
+                <a href="tel:8301849474" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now: 8301849474
+                </a>
+                <a href="pages/services.html" class="btn btn-secondary">
+                    <i class="fas fa-cogs"></i> Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services -->
+    <section class="quick-services section-light">
+        <div class="container">
+            <h2 class="section-title">Our Solar Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Residential</h3>
+                    <p>Home solar systems with subsidies</p>
+                    <a href="pages/services.html#residential" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial</h3>
+                    <p>Business solar solutions</p>
+                    <a href="pages/services.html#commercial" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Industrial</h3>
+                    <p>Large-scale solar plants</p>
+                    <a href="pages/services.html#industrial" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects section-light">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>5kW Residential - Thiruvalla</h3>
+                        <p>Complete home solar system with 85% bill reduction</p>
+                        <a href="pages/projects.html" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>15kW Commercial - Kollam</h3>
+                        <p>Business solar plant with 3.2 year ROI</p>
+                        <a href="pages/projects.html" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="pages/projects.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Solis Green India?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-award"></i>
+                    <h3>Expert Team</h3>
+                    <p>Certified solar professionals with years of experience</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Quality Products</h3>
+                    <p>Premium solar panels and components from trusted brands</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Complete Support</h3>
+                    <p>End-to-end service from consultation to maintenance</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Best Value</h3>
+                    <p>Competitive pricing with maximum ROI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="quick-contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Ready to Go Solar?</h2>
+                    <p>Get free consultation and quote for your solar project</p>
+                    <div class="contact-methods">
+                        <a href="tel:8301849474" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>Call: 8301849474</span>
+                        </a>
+                        <a href="https://wa.me/918301849474" class="contact-method" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="pages/contact.html" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>Send Message</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Quick Inquiry</h3>
+                    <form class="inquiry-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <select required>
+                            <option value="">Interested In</option>
+                            <option value="residential">Residential Solar</option>
+                            <option value="commercial">Commercial Solar</option>
+                            <option value="industrial">Industrial Solar</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Get Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo/logo-white.png" alt="Solis Green India" class="footer-logo-img">
+                    </div>
+                    <p>Leading provider of sustainable energy solutions in India, committed to a greener future.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/918301849474" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/cities.html">Service Areas</a></li>
+                        <li><a href="pages/projects.html">Projects</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="pages/services.html#residential">Residential Solar</a></li>
+                        <li><a href="pages/services.html#commercial">Commercial Solar</a></li>
+                        <li><a href="pages/services.html#industrial">Industrial Solar</a></li>
+                        <li><a href="pages/services.html#maintenance">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> <a href="tel:8301849474">8301849474</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:solisgreenindia@gmail.com">solisgreenindia@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Kerala, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Solis Green India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
