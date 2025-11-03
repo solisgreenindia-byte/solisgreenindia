@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Solis Green India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <img src="images/logo/logo.png" alt="Solis Green India">
+                    </div>
+                    <h1>Employee Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Welcome</span>
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <button class="logout-btn" onclick="Auth.logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="todayActivities">0</h3>
+                            <p>Today's Activities</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>₹<span id="monthlyExpenses">0</span></h3>
+                            <p>Monthly Expenses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>₹<span id="petrolExpenses">0</span></h3>
+                            <p>Petrol Expenses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalQuotations">0</h3>
+                            <p>Quotations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="actions-section">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="Dashboard.openTab('activity')">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Log Activity</span>
+                    </button>
+                    <button class="action-btn" onclick="Dashboard.openTab('expense')">
+                        <i class="fas fa-receipt"></i>
+                        <span>Add Expense</span>
+                    </button>
+                    <button class="action-btn" onclick="Dashboard.openTab('petrol')">
+                        <i class="fas fa-gas-pump"></i>
+                        <span>Petrol Expense</span>
+                    </button>
+                    <button class="action-btn" onclick="Dashboard.openTab('quotation')">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Create Quote</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Main Content Tabs -->
+            <section class="tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="activity">Daily Activities</button>
+                    <button class="tab-btn" data-tab="expense">Expenses</button>
+                    <button class="tab-btn" data-tab="petrol">Petrol Expenses</button>
+                    <button class="tab-btn" data-tab="quotation">Quotations</button>
+                    <button class="tab-btn" data-tab="reports">Reports</button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Activities Tab -->
+                    <div id="activity" class="tab-content active">
+                        <div class="tab-grid">
+                            <div class="form-card">
+                                <h3>Log Daily Activity</h3>
+                                <form id="activityForm">
+                                    <div class="form-group">
+                                        <label for="activityDate">Date</label>
+                                        <input type="date" id="activityDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activityType">Activity Type</label>
+                                        <select id="activityType" required>
+                                            <option value="">Select Type</option>
+                                            <option value="site_visit">Site Visit</option>
+                                            <option value="installation">Installation</option>
+                                            <option value="maintenance">Maintenance</option>
+                                            <option value="meeting">Client Meeting</option>
+                                            <option value="office">Office Work</option>
+                                            <option value="travel">Travel</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activityDescription">Description</label>
+                                        <textarea id="activityDescription" placeholder="Describe the activity..." required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activityHours">Hours Spent</label>
+                                        <input type="number" id="activityHours" placeholder="Hours" step="0.5" min="0.5" max="24" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activityLocation">Location</label>
+                                        <input type="text" id="activityLocation" placeholder="Location">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Log Activity
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="list-card">
+                                <h3>Today's Activities</h3>
+                                <div id="activitiesList" class="activities-list">
+                                    <!-- Activities will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expenses Tab -->
+                    <div id="expense" class="tab-content">
+                        <div class="tab-grid">
+                            <div class="form-card">
+                                <h3>Add Expense</h3>
+                                <form id="expenseForm">
+                                    <div class="form-group">
+                                        <label for="expenseDate">Date</label>
+                                        <input type="date" id="expenseDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseCategory">Category</label>
+                                        <select id="expenseCategory" required>
+                                            <option value="">Select Category</option>
+                                            <option value="travel">Travel</option>
+                                            <option value="food">Food</option>
+                                            <option value="accommodation">Accommodation</option>
+                                            <option value="materials">Materials</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseDescription">Description</label>
+                                        <input type="text" id="expenseDescription" placeholder="Expense description" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseAmount">Amount (₹)</label>
+                                        <input type="number" id="expenseAmount" placeholder="0.00" step="0.01" min="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseReceipt">Receipt (optional)</label>
+                                        <input type="file" id="expenseReceipt" accept="image/*,.pdf">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Add Expense
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="list-card">
+                                <h3>Recent Expenses</h3>
+                                <div id="expensesList" class="expenses-list">
+                                    <!-- Expenses will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Petrol Expenses Tab -->
+                    <div id="petrol" class="tab-content">
+                        <div class="tab-grid">
+                            <div class="form-card">
+                                <h3>Log Petrol Expense</h3>
+                                <form id="petrolForm">
+                                    <div class="form-group">
+                                        <label for="petrolDate">Date</label>
+                                        <input type="date" id="petrolDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehicleNumber">Vehicle Number</label>
+                                        <input type="text" id="vehicleNumber" placeholder="KL-XX-XX-XXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="petrolAmount">Amount (₹)</label>
+                                        <input type="number" id="petrolAmount" placeholder="0.00" step="0.01" min="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="distance">Distance (km)</label>
+                                        <input type="number" id="distance" placeholder="0.0" step="0.1" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="purpose">Purpose</label>
+                                        <input type="text" id="purpose" placeholder="Purpose of travel">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Log Petrol Expense
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="list-card">
+                                <h3>Petrol Expenses</h3>
+                                <div id="petrolList" class="petrol-list">
+                                    <!-- Petrol expenses will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quotations Tab -->
+                    <div id="quotation" class="tab-content">
+                        <div class="tab-grid">
+                            <div class="form-card">
+                                <h3>Create Quotation</h3>
+                                <form id="quotationForm">
+                                    <div class="form-group">
+                                        <label for="customerName">Customer Name</label>
+                                        <input type="text" id="customerName" placeholder="Customer name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerPhone">Customer Phone</label>
+                                        <input type="tel" id="customerPhone" placeholder="Phone number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerEmail">Customer Email</label>
+                                        <input type="email" id="customerEmail" placeholder="Email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="projectLocation">Project Location</label>
+                                        <input type="text" id="projectLocation" placeholder="Location" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="systemType">System Type</label>
+                                        <select id="systemType" required>
+                                            <option value="">Select Type</option>
+                                            <option value="residential">Residential</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="industrial">Industrial</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="systemSize">System Size (kW)</label>
+                                        <input type="number" id="systemSize" placeholder="0.0" step="0.1" min="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quotationAmount">Total Amount (₹)</label>
+                                        <input type="number" id="quotationAmount" placeholder="0.00" step="0.01" min="0" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-file-alt"></i> Create Quotation
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="list-card">
+                                <h3>Recent Quotations</h3>
+                                <div id="quotationsList" class="quotations-list">
+                                    <!-- Quotations will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reports Tab -->
+                    <div id="reports" class="tab-content">
+                        <div class="reports-container">
+                            <div class="report-controls">
+                                <h3>Generate Reports</h3>
+                                <div class="control-group">
+                                    <label for="reportMonth">Select Month</label>
+                                    <input type="month" id="reportMonth">
+                                </div>
+                                <div class="control-group">
+                                    <label for="reportType">Report Type</label>
+                                    <select id="reportType">
+                                        <option value="summary">Summary Report</option>
+                                        <option value="detailed">Detailed Report</option>
+                                        <option value="expenses">Expense Report</option>
+                                        <option value="activities">Activity Report</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary" onclick="Reports.generateReport()">
+                                    <i class="fas fa-chart-bar"></i> Generate Report
+                                </button>
+                                <button class="btn btn-secondary" onclick="Reports.exportData()">
+                                    <i class="fas fa-download"></i> Export Data
+                                </button>
+                            </div>
+                            <div class="report-results">
+                                <h3>Report Summary</h3>
+                                <div id="reportSummary" class="report-summary">
+                                    <!-- Report results will be displayed here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/expenses.js"></script>
+    <script src="js/petrol.js"></script>
+    <script src="js/quotations.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>
